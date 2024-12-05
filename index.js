@@ -12,32 +12,32 @@ const io = new Server(server)
 const __dirname = dirname(fileURLToPath(import.meta.url))
 app.use(express.static('public'))
 
-app.get('/',(req,res)=>{
-    res.sendFile('./index.html')
+app.get('/', (req, res) => {
+    res.sendFile(join(__dirname, 'public', './index.html'))
 })
-// app.get('/user',(req,res)=>{
-//     res.sendFile('./public/user.html')
-// })
-// app.get('/admin',(req,res)=>{
-//     res.sendFile(join(__dirname,'admin.html'))
-// })
+app.get('/User', (req, res) => {
+    res.sendFile(join(__dirname, 'public', './user.html'))
+})
+app.get('/Admin', (req, res) => {
+    res.sendFile(join(__dirname, 'public', 'admin.html'))
+})
 
-// app.get('*',(req,res)=>{
-//     res.sendFile(join(__dirname,'page.html'))
-// })
+app.get('*', (req, res) => {
+    res.sendFile(join(__dirname, 'public', 'page.html'))
+})
 
-io.on('connection',(socket)=>{
+io.on('connection', (socket) => {
     // chat message
-    socket.on("User Message", (msg)=>{
+    socket.on("User Message", (msg) => {
         io.emit("User Message", msg)
     })
-    socket.on("Admin Message", msg=>{
+    socket.on("Admin Message", msg => {
         io.emit("Admin Message", msg)
     })
-    socket.on('disconnect',()=>{
+    socket.on('disconnect', () => {
         console.log("Socket Disconnected")
     })
 })
-server.listen(PORT, ()=>{
-    console.log("Socket server is running on PORT :",PORT)  
+server.listen(PORT, () => {
+    console.log("Socket server is running on PORT :", PORT)
 })
