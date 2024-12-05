@@ -12,9 +12,9 @@ const io = new Server(server)
 const __dirname = dirname(fileURLToPath(import.meta.url))
 app.use(express.static('public'))
 
-// app.get('/',(req,res)=>{
-//     res.sendFile('./index.html')
-// })
+app.get('/',(req,res)=>{
+    res.sendFile('./index.html')
+})
 // app.get('/user',(req,res)=>{
 //     res.sendFile('./public/user.html')
 // })
