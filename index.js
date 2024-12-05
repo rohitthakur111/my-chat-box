@@ -10,16 +10,18 @@ const server = createServer(app)
 const io = new Server(server)
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
+app.use(express.static('public'))
 
 app.get('/',(req,res)=>{
-    res.sendFile(join(__dirname,'index.html'))
+    res.sendFile('./index.html')
 })
 app.get('/user',(req,res)=>{
-    res.sendFile(join(__dirname,'user.html'))
+    res.sendFile('./public/user.html')
 })
 app.get('/admin',(req,res)=>{
     res.sendFile(join(__dirname,'admin.html'))
 })
+
 app.get('*',(req,res)=>{
     res.sendFile(join(__dirname,'page.html'))
 })
