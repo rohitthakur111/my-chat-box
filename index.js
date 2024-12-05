@@ -12,19 +12,20 @@ const io = new Server(server)
 const __dirname = dirname(fileURLToPath(import.meta.url))
 app.use(express.static('public'))
 
-app.get('/',(req,res)=>{
-    res.sendFile('./index.html')
-})
-app.get('/user',(req,res)=>{
-    res.sendFile('./public/user.html')
-})
-app.get('/admin',(req,res)=>{
-    res.sendFile(join(__dirname,'admin.html'))
-})
+// app.get('/',(req,res)=>{
+//     res.sendFile('./index.html')
+// })
+// app.get('/user',(req,res)=>{
+//     res.sendFile('./public/user.html')
+// })
+// app.get('/admin',(req,res)=>{
+//     res.sendFile(join(__dirname,'admin.html'))
+// })
 
-app.get('*',(req,res)=>{
-    res.sendFile(join(__dirname,'page.html'))
-})
+// app.get('*',(req,res)=>{
+//     res.sendFile(join(__dirname,'page.html'))
+// })
+
 io.on('connection',(socket)=>{
     // chat message
     socket.on("User Message", (msg)=>{
