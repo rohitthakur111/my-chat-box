@@ -1,0 +1,18 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Backeend",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rohit Thakur",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1",
+    "save": "^2.9.0",
+    "socket.io": "^4.8.1"
+  }
+}
